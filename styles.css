@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Outfit:wght@100..900&family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Outfit:wght@100..900&family=Sedan+SC&family=Yellowtail&display=swap');
 
 * {
     margin: 0;
@@ -14,16 +14,20 @@ html {
 }
 
 :root {
-    --blue: #010112;
+    --blue-1: #010112;
+    --blue-2: #000008;
+    --blue-3: #000004;
     --orange-1: #fd9e29;
     --orange-2: #ff8c00;
     --orange-3: #ff4500;
+    --light: #f5f5dc;
 }
 
 .container {
     width: 100%;
     height: 100%;
-    background-color: #010112;
+    background-color: var(--blue-1);
+    position: relative;
 }
 
 .menu-icon {
@@ -64,7 +68,107 @@ html {
 }
 
 .navigation {
-    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--blue-2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 100;
+}
+
+.nav-left {
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.nav-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.3;
+    transition: all 1s;
+}
+
+.nav-left:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.nav-right {
+    width: 50%;
+    height: 100%;
+    background-color: var(--blue-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-items a {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+    text-transform: uppercase;
+    color: var(--light);
+    transition: color 0.3s;
+}
+
+.nav-items a:first-child {
+    /* padding-left: 6rem; */
+    padding-left: 5rem;
+    position: relative;
+}
+
+.nav-items a:first-child::before {
+    content: '';
+    /* width: 4.8rem; */
+    width: 3.4rem;
+    height: 0.2rem;
+    background-color: var(--light);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+}
+
+.nav-items a:first-child:hover::before {
+    background-color: var(--orange-1);
+} 
+
+.nav-items a:hover {
+    color: var(--orange-1);
+}
+
+.nav-items a span {
+    font-family: 'Sedan SC', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-right: 1rem;
+    letter-spacing: 0.2rem;
+    position: relative;
+}
+
+.nav-items a span::before {
+    content: '';
+    width: 0;
+    height: 0.5rem;
+    background-color: var(--orange-1);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-items a:hover span::before {
+    width: 100%;
 }
 
 header {
