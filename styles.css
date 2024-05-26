@@ -14,9 +14,9 @@ html {
 }
 
 :root {
-    --blue-1: #010112;
-    --blue-2: #000008;
-    --blue-3: #000004;
+    --blue-1: #010130;
+    --blue-2: #000020;
+    --blue-3: #000010;
     --orange-1: #fd9e29;
     --orange-2: #ff8c00;
     --orange-3: #ff4500;
@@ -54,9 +54,32 @@ html {
     width: 100%;
 }
 
+.navigate .line-1 {
+    width: 50%;
+    transform: translate(103%, 0.5rem) rotateZ(25deg);
+}
+
+.navigate .line-2 {
+    width: 100%;
+}
+
+.navigate .line-3 {
+    width: 50%;
+    transform: translate(103%, -0.5rem) rotateZ(-25deg);
+}
+
 .menu-icon:hover .line-1,
 .menu-icon:hover .line-3 {
     width: 70%;
+}
+
+.navigate .menu-icon:hover .line-1, 
+.navigate .menu-icon:hover .line-3 {
+    width: 50%;
+}
+
+.navigate .menu-icon:hover .line-2 {
+    margin-left: 0;
 }
 
 .line-2 {
@@ -76,12 +99,29 @@ html {
     left: 0;
     display: flex;
     z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.7s;
+}
+
+.navigate .navigation {
+    opacity: 1;
+    visibility: visible;
 }
 
 .nav-left {
     width: 50%;
     height: 100%;
     cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+}
+
+.navigate .nav-left {
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s 0.7s;
 }
 
 .nav-left img {
@@ -99,12 +139,19 @@ html {
 }
 
 .nav-right {
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-color: var(--blue-3);
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateX(-200%);
+}
+
+.navigate .nav-right {
+    transform: translateX(0);
+    width: 50%;
+    transition: all 1s;
 }
 
 .nav-items {
@@ -117,7 +164,33 @@ html {
     margin: 2rem 0;
     text-transform: uppercase;
     color: var(--light);
-    transition: color 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navigate .nav-items a {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navigate .nav-items a:nth-child(1) {
+    transition: opacity 0.5s 1s, color 0.3s;
+}
+
+.navigate .nav-items a:nth-child(2) {
+    transition: opacity 0.5s 1.2s, color 0.3s;
+}
+
+.navigate .nav-items a:nth-child(3) {
+    transition: opacity 0.5s 1.4s, color 0.3s;
+}
+
+.navigate .nav-items a:nth-child(4) {
+    transition: opacity 0.5s 1.6s, color 0.3s;
+}
+
+.navigate .nav-items a:nth-child(5) {
+    transition: opacity 0.5s 1.8s, color 0.3s;
 }
 
 .nav-items a:first-child {
@@ -202,14 +275,14 @@ header {
     font-family: 'Caveat', cursive;
     font-size: 7rem;
     font-weight: 300;
-    color: var(--orange-1);
+    color: var(--light);
     transform: translate(6rem, 12rem);
     /* transform: translate(3rem, 11rem); original code*/
 }
 
 .banner h1 {
     font-size: 15rem;
-    background-image: url('./images/text-bg-1.jpg');
+    background-image: url('./images/text-bg-0.jpg');
     background-size: cover;
     font-weight: 500;
     background-clip: text;
@@ -225,7 +298,7 @@ header {
 .banner h4 {
     font-size: 1.8rem;
     font-weight: 300;
-    color: var(--orange-1);
+    color: var(--light);
     text-transform: uppercase;
     letter-spacing: 0.7rem;
 }
